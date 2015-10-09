@@ -1,0 +1,9 @@
+use Mix.Config
+
+config :logger, :console,
+  level: :debug,
+  truncate: 131072
+
+config :slack,
+  token: "slack bot token here",
+  ignore_channels: ["ignore things said in these channels"]
