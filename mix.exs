@@ -17,7 +17,8 @@ defmodule PDD.Mixfile do
   def application do
     [
       mod: {PDDApp, []},
-      applications: [:logger, :slack]]
+      applications: [:logger, :slack, :httpoison],
+    ]
   end
 
   # Dependencies can be Hex packages:
@@ -33,6 +34,8 @@ defmodule PDD.Mixfile do
     [
       {:slack, "~> 0.2.0"},
       {:websocket_client, git: "https://github.com/jeremyong/websocket_client"},
+      {:httpoison, "~> 0.7.2"},
+      {:floki, "~> 0.6"},
     ]
   end
 end
