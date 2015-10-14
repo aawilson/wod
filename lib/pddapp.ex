@@ -4,13 +4,13 @@ defmodule PDDApp do
   require Logger
 
   def start(_type, _args) do
-    Logger.info "starting PDD"
+    Logger.info "Iniciando PDD"
 
-    children = [worker(PDD, [
+    hijos = [worker(PDD, [
       Application.get_env(:slack, :token),
       %{ignore_channels: Application.get_env(:slack, :ignore_channels)}
     ])]
 
-    {:ok, _pid} = Supervisor.start_link children, strategy: :one_for_one
+    {:ok, _pid} = Supervisor.start_link hijos, strategy: :one_for_one
   end
 end
