@@ -50,13 +50,12 @@ defmodule DiccionarioLibre do
 
     [{"a", [{"href", _}], [palabra]} | _] = daily_box |> Floki.find(".big_title a")
 
-    [{"p", [], [definicion]}, {"p", [{"class", "menus"}], [ejemplo]}] = daily_box |> Floki.find(".daily_main_box p")
+    [{"p", _, [definicion | _]} | ejemplo_raw] = daily_box |> Floki.find(".daily_main_box p")
 
     {:ok, %{
       fecha: String.downcase(fecha),
       palabra: String.downcase(palabra),
       definicion: String.downcase(definicion),
-      ejemplo: String.downcase(ejemplo)
     }}
   end
 end
