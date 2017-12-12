@@ -1,8 +1,8 @@
-defmodule PDD.Mixfile do
+defmodule WOD.Mixfile do
   use Mix.Project
 
   def project do
-    [app: :pdd,
+    [app: :wod,
      version: "0.0.1",
      elixir: "~> 1.0",
      build_embedded: Mix.env == :prod,
@@ -16,7 +16,7 @@ defmodule PDD.Mixfile do
   # Type `mix help compile.app` for more information
   def application do
     [
-      mod: {PDDApp, []},
+      mod: {WODApp, []},
       applications: [:logger, :slack, :httpoison],
     ]
   end
@@ -30,12 +30,12 @@ defmodule PDD.Mixfile do
   #   {:mydep, git: "https://github.com/elixir-lang/mydep.git", tag: "0.1.0"}
   #
   # Type `mix help deps` for more examples and options
-  defp deps do
+  defp deps() do
     [
-      {:slack, "~> 0.2.0"},
-      {:websocket_client, git: "https://github.com/jeremyong/websocket_client"},
-      {:httpoison, "~> 0.7.2"},
-      {:floki, "~> 0.6"},
+      {:slack, "~> 0.12.0"},
+      {:websocket_client, "~> 1.2.4"},
+      {:httpoison, "~> 0.13"},
+      {:floki, "~> 0.19.0"},
     ]
   end
 end
